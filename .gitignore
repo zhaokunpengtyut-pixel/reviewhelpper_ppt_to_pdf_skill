@@ -1,0 +1,19 @@
+# intermediates produced by the pipeline
+_pptx/
+_slides/
+_text/
+_prev/
+.chromeprofile/
+_book.html
+*.pdf.tmp
+
+# python
+__pycache__/
+*.pyc
+
+# os / editor
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/

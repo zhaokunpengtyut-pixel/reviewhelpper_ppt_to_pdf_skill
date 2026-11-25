@@ -1,0 +1,209 @@
+/* ================= 基础 ================= */
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  margin: 0;
+  font-family: "Microsoft YaHei", "PingFang SC", "Source Han Sans SC", sans-serif;
+  font-size: 10.2pt;
+  line-height: 1.75;
+  color: #1f2733;
+  text-align: justify;
+}
+p { margin: 0 0 6pt; text-indent: 0; orphans: 2; widows: 2; }
+ul, ol { margin: 4pt 0 8pt; padding-left: 18pt; }
+li { margin: 2pt 0; }
+h1, h2, h3, .box .h, .card > .hd, .res, .toc .row { text-align: left; }
+b, strong { color: #10233f; }
+
+/* 公式：与课件一致的 X' 写法，衬线斜体 */
+.f {
+  font-family: "Cambria", "Times New Roman", "Georgia", serif;
+  font-style: italic;
+  font-size: 10.8pt;
+  letter-spacing: 0.2pt;
+}
+.f sub, .f sup { font-style: normal; }
+.ov { text-decoration: overline; }
+.mono {
+  font-family: "Consolas", "Cascadia Mono", monospace;
+  font-size: 9pt; font-style: normal; line-height: 1.5;
+}
+pre.code {
+  font-family: "Consolas", "Cascadia Mono", monospace;
+  font-size: 8.4pt; line-height: 1.48;
+  background: #f6f8fb; border: .6pt solid #dbe4ee; border-left: 3pt solid #2a6cb5;
+  padding: 6pt 9pt; margin: 5pt 0 9pt; border-radius: 2pt;
+  white-space: pre-wrap; break-inside: avoid; color: #1f2a38;
+}
+pre.code .k { color: #123f7c; font-weight: 600; }
+pre.code .c { color: #8a94a2; }
+code.inl {
+  font-family: "Consolas", monospace; font-size: 9pt;
+  background: #eef3f9; padding: 0 2pt; border-radius: 2pt; color: #14324f;
+}
+
+/* ================= 封面 ================= */
+.cover {
+  height: 258mm; position: relative; break-after: page;
+  background: linear-gradient(150deg, #0f2f5f 0%, #17457f 45%, #1c5aa0 100%);
+  color: #fff; border-radius: 6pt; padding: 36mm 20mm 0 20mm;
+  overflow: hidden;
+}
+.cover:before {
+  content: ""; position: absolute; right: -55mm; top: -45mm;
+  width: 190mm; height: 190mm; border-radius: 50%;
+  background: rgba(255,255,255,.055);
+}
+.cover:after {
+  content: ""; position: absolute; right: -15mm; bottom: -55mm;
+  width: 140mm; height: 140mm; border-radius: 50%;
+  background: rgba(255,255,255,.04);
+}
+.cover .kicker { font-size: 9.5pt; letter-spacing: 4.5pt; opacity: .78; }
+.cover h1 {
+  font-size: 38pt; line-height: 1.2; margin: 11mm 0 6mm;
+  color: #fff; border: 0; padding: 0; letter-spacing: 2pt; font-weight: 700;
+  background: none;
+}
+.cover .sub { font-size: 14pt; opacity: .95; letter-spacing: 1pt; }
+.cover .rule { width: 44mm; height: 3pt; background: #f2c14e; margin: 8mm 0; }
+.cover .meta { position: absolute; left: 20mm; bottom: 24mm; font-size: 9.2pt; line-height: 2; opacity: .92; }
+.cover .meta span { display: inline-block; width: 22mm; opacity: .7; }
+.cover .tag {
+  display: inline-block; border: .8pt solid rgba(255,255,255,.55);
+  border-radius: 20pt; padding: 2mm 6mm; font-size: 9pt; margin-right: 3mm;
+}
+
+/* ================= 标题层级 ================= */
+h1.chapter {
+  break-before: page;
+  font-size: 20pt; color: #0f2f5f; margin: 0 0 10pt;
+  padding: 0 0 6pt; border-bottom: 2.4pt solid #0f2f5f;
+  letter-spacing: 0.5pt;
+}
+h1.chapter .num {
+  display: inline-block; background: #0f2f5f; color: #fff;
+  font-size: 12pt; padding: 1pt 8pt; border-radius: 3pt; margin-right: 8pt;
+  vertical-align: 4pt; letter-spacing: 1pt;
+}
+h1.chapter .en { font-size: 9pt; color: #7a8797; font-weight: 400; letter-spacing: 1pt; margin-left: 6pt; }
+
+h2 {
+  font-size: 13pt; color: #123f7c; margin: 16pt 0 7pt;
+  padding-left: 7pt; border-left: 4pt solid #2a6cb5;
+  break-after: avoid;
+}
+h3 { font-size: 11pt; color: #1b3a63; margin: 11pt 0 5pt; break-after: avoid; }
+
+.lead {
+  background: #f4f7fb; border-left: 3pt solid #b9cde4;
+  padding: 7pt 10pt; margin: 8pt 0 12pt; font-size: 9.6pt; color: #3b4a5e;
+}
+
+/* ================= 表格 ================= */
+table.t {
+  width: 100%; border-collapse: collapse; margin: 6pt 0 11pt;
+  font-size: 9.2pt; line-height: 1.5; break-inside: avoid;
+}
+table.t caption {
+  caption-side: top; text-align: left; font-size: 9pt; color: #64748b;
+  padding-bottom: 3pt; font-weight: 700;
+}
+table.t th {
+  background: #123f7c; color: #fff; font-weight: 600;
+  border: .6pt solid #123f7c; padding: 3.2pt 4pt; text-align: center; white-space: nowrap;
+}
+table.t td {
+  border: .6pt solid #c3d2e4; padding: 3pt 4pt; text-align: center;
+}
+table.t tr:nth-child(even) td { background: #f5f8fc; }
+table.t td.l, table.t th.l { text-align: left; }
+table.t.small { font-size: 8.6pt; }
+table.t .hl { background: #fdf1d6 !important; }
+
+/* ================= 提示框 ================= */
+.box {
+  border: .7pt solid #cfdcec; border-left-width: 4pt;
+  background: #f8fafd; padding: 7pt 10pt; margin: 8pt 0 11pt;
+  font-size: 9.6pt; break-inside: avoid;
+}
+.box .h { font-weight: 700; color: #123f7c; margin-bottom: 3pt; font-size: 9.8pt; }
+.box.tip { border-left-color: #2a8f6a; background: #f2faf6; }
+.box.tip .h { color: #1d6f52; }
+.box.warn { border-left-color: #c0392b; background: #fdf4f3; }
+.box.warn .h { color: #a3311f; }
+.box.key { border-left-color: #c99a15; background: #fffaf0; }
+.box.key .h { color: #8a6a09; }
+.box p:last-child { margin-bottom: 0; }
+
+/* ================= 例题卡片 ================= */
+.card {
+  border: .8pt solid #d3dfec; border-radius: 3pt;
+  margin: 10pt 0 14pt; overflow: hidden; break-inside: auto;
+}
+.card.long { break-inside: auto; }
+.card > .hd {
+  background: linear-gradient(90deg, #123f7c, #2a6cb5);
+  color: #fff; padding: 5pt 9pt; font-size: 10.2pt; font-weight: 700;
+  letter-spacing: .3pt; break-after: avoid;
+}
+.card > .hd .src { float: right; font-weight: 400; font-size: 8.4pt; opacity: .85; letter-spacing: 0; }
+.card > .bd { padding: 8pt 10pt 6pt; }
+.card .q { font-size: 10pt; margin-bottom: 7pt; }
+.card .q b { color: #0f2f5f; }
+
+.shot { margin: 7pt 0 8pt; break-inside: avoid; }
+.shot img {
+  display: block; width: 100%; height: auto;
+  border: .6pt solid #ccd7e4; border-radius: 2pt;
+}
+.shot .cap {
+  font-size: 8.2pt; color: #7a8797; margin-top: 2.5pt; text-align: center;
+}
+.shot.narrow img { width: 88%; margin: 0 auto; }
+
+.ans { margin-top: 4pt; }
+.ans .tag {
+  display: inline-block; background: #e8f0f9; color: #123f7c;
+  font-size: 8.6pt; font-weight: 700; padding: .5pt 5pt; border-radius: 2pt;
+  margin-right: 4pt; letter-spacing: .5pt;
+}
+.step { margin: 3pt 0 3pt 2pt; padding-left: 19pt; text-indent: -19pt; }
+.step .no {
+  display: inline-block; width: 19pt; text-indent: 0; color: #2a6cb5; font-weight: 700; font-size: 9.4pt;
+}
+.res {
+  background: #eef6f2; border: .6pt dashed #7bbfa4; border-radius: 2pt;
+  padding: 4pt 8pt; margin: 6pt 0 3pt; font-size: 9.8pt;
+}
+.res b { color: #17664a; }
+
+/* ================= 图形 ================= */
+figure.svg { margin: 8pt 0 11pt; text-align: center; break-inside: avoid; }
+figure.svg svg { max-width: 100%; height: auto; }
+figure.svg figcaption { font-size: 8.6pt; color: #64748b; margin-top: 3pt; }
+.svgwrap { display: flex; gap: 8pt; justify-content: center; flex-wrap: wrap; align-items: flex-start; }
+
+/* 两栏 */
+.cols { display: flex; gap: 10pt; }
+.cols > div { flex: 1; }
+
+/* ================= 目录 ================= */
+.toc { break-after: page; }
+.toc h1 {
+  font-size: 18pt; color: #0f2f5f; margin: 0 0 14pt;
+  border-bottom: 2.4pt solid #0f2f5f; padding-bottom: 6pt;
+}
+.toc .row {
+  display: flex; align-items: baseline;
+  border-bottom: .5pt dotted #c3ceDC; padding: 4.5pt 0;
+}
+.toc .row .n {
+  width: 21mm; flex-shrink: 0; padding-right: 4pt; font-weight: 700; color: #2a6cb5; font-size: 10.5pt;
+}
+.toc .row .t { flex: 1; font-size: 10pt; }
+.toc .row .d { font-size: 8.4pt; color: #7a8797; }
+.toc .sub2 { margin-left: 12mm; font-size: 9pt; color: #4a5a6e; padding: 2pt 0; border: 0; }
+
+.pgbreak { break-after: page; }
+.nb { break-inside: avoid; }
