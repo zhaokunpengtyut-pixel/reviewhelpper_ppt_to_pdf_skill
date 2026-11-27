@@ -18,8 +18,9 @@ The `scripts/` and `assets/` in this directory are the verified versions — **c
 If the user did not specify, apply this default contract and state it at delivery:
 
 > ① **Every** exercise in the courseware is reproduced with a detailed, step-by-step answer; anything the courseware omits is written in.
-> ② **If it can be a figure or a table, it must not be a paragraph** (truth tables, K-maps, state tables, comparison tables, flow diagrams).
-> ③ **Embed the original slide screenshot**, captioned with its source page, followed by explanatory text.
+> ② **Knowledge sections matter as much as the worked examples.** Walk through the deck's own table of contents section by section, explaining what / why / how, and give **every section** its own courseware figure (structure diagram, characteristic curve, internal logic diagram, function table). A few tables with no prose is a failed deliverable.
+> ③ **If it can be a figure or a table, it must not be a paragraph** (truth tables, K-maps, state tables, comparison tables, flow diagrams).
+> ④ **Embed the original slide screenshot**, captioned with its source page, followed by explanatory text.
 
 ## 1. Environment check (run it, do not assume)
 
@@ -144,8 +145,11 @@ Name chapter fragments `NN_*.html` (`00_front` … `09_appendix`) and pair them 
 
 ## 4. Content rules
 
+- **Invest in the knowledge sections as much as in the worked examples** (this is the easiest thing to get wrong). Take the deck's contents page as the skeleton, give **each section its own `<h2>`**, write 2–4 paragraphs on *what → why → how → where students trip up*, then attach 1–2 courseware figures.
+  The test: **the knowledge part alone should be enough to understand the chapter**, without jumping into the examples.
+- **Knowledge sections need courseware screenshots too.** Best candidates: device internal logic diagrams, characteristic curves, block diagrams, timing waveforms, original function tables. These are exactly the figures you cannot redraw and should not redraw.
 - **Explain the *why*, not just the answer.** If the deck gives the answer, add the intermediate steps; if it gives only the conclusion, add the derivation; if it jumps, name the formula that was used.
-- **Re-check the courseware's own answers.** The reference run found two real errors (one answer's third term was wrong and contradicted the truth table at a specific minterm; two example numbers were mislabelled). Flag them in the text as "the courseware prints X here; the K-map gives Y — trust the K-map." That is worth more than copying.
+- **Re-check the courseware's own answers.** The reference run found two real errors (one answer's third term contradicted the truth table at a specific minterm; two example numbers were mislabelled). Flag them in the text as "the courseware prints X here; the K-map gives Y — trust the K-map." That is worth more than copying.
 - **One notation throughout**: `A'` for NOT, `⊕` for XOR, `∑m(…)` for minterms, `∑d(…)` for don't-cares; subscripts via `<sub>`.
 - **End every chapter with a self-test table** (no. / question / answer) so answers can be checked at a glance.
 - **The appendix must fit on a few pages**: part cheat-sheet + top-20 pitfalls + comprehensive self-test. In the last 30 minutes before an exam, people only read the appendix.
@@ -164,6 +168,12 @@ Name chapter fragments `NN_*.html` (`00_front` … `09_appendix`) and pair them 
 10. **Missing images fail silently.** A wrong `<img src>` leaves only a broken icon, easy to miss in a quick scroll — always verify with the script (QA check 3).
 11. **Uncompressed images bloat the PDF.** 79 PNGs at 1400 px / JPEG-86 were 27 MB; 1200 px + white-point stretch + q80 is 11 MB.
 12. **Do not mix full-width Chinese quotation marks into `<pre>` code blocks** — they misalign in monospace. Use Consolas, light grey background, blue left rule.
+13. **A knowledge section made only of tables is a failed deliverable.** The first version of the reference handout had barely a dozen tables and almost no prose for 8 chapters; the user spotted it immediately ("the knowledge part is too thin"). Expand section by section and attach figures — see rule 1 in section 4.
+14. **Never splice chapters on the first `<!-- 例` marker.** Example cards sit *between* knowledge subsections, so that split leaves the second half of each chapter's knowledge stranded after the examples — duplicated and out of order.
+    Correct approach: split on `^<h2>`, drop the old knowledge subsections, **keep everything from `<!-- 例` onward inside each subsection** (the cards), then prepend the new knowledge.
+    After splicing, **assert that the `class="card"` count matches the original file**, and list every `<h2>` to confirm the numbering is sequential with no duplicates.
+15. **Figure layout**: use `.figrow` (flex) for two-up rows with captions pinned to a common baseline via `margin-top:auto`; **never let a single figure span the full column** (half the page goes blank) — use `:has(> figure:only-child)` to pull it back to ~76% and centre it.
+16. **Table numbers collide.** The handout numbers its own tables `表 4-1, 4-2…`, while the example commentary cites the *courseware's* `表4-3`. Always write 「课件表 4-3」 when citing a courseware table; never run two numbering schemes unlabelled.
 
 ## 6. Delivery and cleanup
 

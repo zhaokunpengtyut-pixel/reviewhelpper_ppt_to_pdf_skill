@@ -20,7 +20,7 @@ This skill does what a good TA would do:
 - keep the **original slide as an image** (circuit diagrams must not be re-drawn by an LLM),
 - and write the missing reasoning underneath it.
 
-Reference run: **8 decks · 679 slides → 108-page PDF · 70 embedded slide screenshots · 72 examples fully solved · 15 MB.**
+Reference run: **8 decks · 679 slides → 134-page PDF · 117 embedded slide screenshots · 72 examples fully solved · 21 MB.**
 
 ## What the output looks like
 
@@ -28,6 +28,10 @@ Reference run: **8 decks · 679 slides → 108-page PDF · 70 embedded slide scr
 |---|---|
 | ![Cover](docs/preview-01-cover.jpg) | ![Table of contents](docs/preview-02-toc.jpg) |
 | **Cover and contents** — chapter list, example counts, per-topic keywords | **Contents detail** — what each chapter covers, how many examples it carries |
+
+![A knowledge-section page](docs/preview-05-knowledge.jpg)
+
+**Knowledge sections are first-class citizens.** Every deck section gets its own subsection with 2–4 paragraphs of explanation, its own courseware figure (here: the four signal classes and the audio digitisation chain), and a comparison table underneath. The rule is that the knowledge part alone must be readable without jumping into the examples.
 
 ![A worked example page](docs/preview-03-example.jpg)
 
